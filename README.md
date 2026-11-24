@@ -12,3 +12,6 @@ A simple C++ program with array input and output.
 
 ## Author
 Karina Bezdele
+
+## Course
+Git and C++
