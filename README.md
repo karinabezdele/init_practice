@@ -9,3 +9,6 @@ A simple C++ program with array input and output.
 - C++
 - Git
 - GitHub
+
+- ## Author
+Karina Bezdele
