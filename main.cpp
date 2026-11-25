@@ -38,6 +38,10 @@ int main(){
     int n,choice;
     cout << "\nn = ";
     cin >> n;
+    if (n <= 0 || n > N) {
+	    cout << "Wrong array size!";
+	    return 1;
+    }
     arrayInputGen(n, mas);
     //mas_ievads(mas, n);
     mas_izvads(mas, n);
