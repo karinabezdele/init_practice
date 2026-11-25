@@ -79,13 +79,15 @@ int main(){
         system("cls"); //clear
         //saraksts
         cout<<"\n\t\tSorting Algorithms";
-        
+        cout<<"\n 1. Bubble Sort";
         cout<<"\n 0. Exit";
         cout<<"\nInput number: ";
         cin>>choice;
         //alg.izvele
         switch(choice){
-            
+            case 1: bubblesort(mas, n);
+				    system("pause>>nul");
+				    break;
             
             case 0: cout<<"\nExit"; break;
             
