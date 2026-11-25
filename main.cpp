@@ -23,6 +23,14 @@ void mas_izvads(int mas[],int n) {
     cout<<endl;
 }
 
+//masiva generesana
+void arrayInputGen(int n, int mas[]) {
+    for (int i = 0; i < n; i++) {
+        mas[i] = rand() % 30 + 1;
+    }
+}
+
+
 //=======================================MAIN================================================
 int main(){
     srand(time(NULL));
