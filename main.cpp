@@ -28,6 +28,45 @@ void mas_izvads(int mas[],int n) {
     cout << endl;
 }
 
+//bubblesort
+void bubblesort(int mas[], int n) {
+    int i, j, x;
+    int sal = 0;
+    int apm = 0;
+    bool swapped;
+    int passes = 0;
+
+    mas_izvads(mas, n);
+
+    for (j = 0; j < n - 1; j++) {
+    	passes++;
+		swapped = false;
+    	
+        for (i = 0; i < n - 1 - j; i++) {
+        	sal++;
+        	
+            if (mas[i] > mas[i + 1]) {
+                x = mas[i];
+                mas[i] = mas[i + 1];
+                mas[i + 1] = x;
+                apm++;
+                swapped = true;
+            }
+        }
+        if (!swapped) {
+            break;
+    	}
+		
+    }
+
+    cout << "\nSorted array:";
+    mas_izvads(mas, n);
+    
+    cout << "\nComparisons: " << sal;
+    cout << "\nSwaps: " << apm;
+    cout << "\nPasses: " << passes;
+}
+
 //masiva generesana
 void arrayInputGen(int n, int mas[]) {
     for (int i = 0; i < n; i++) {
@@ -51,13 +90,15 @@ int main(){
         system("cls"); //clear
         //saraksts
         cout<<"\n\t\tSorting Algorithms";
-        
+        cout<<"\n 1. Bubble Sort";
         cout<<"\n 0. Exit";
         cout<<"\nInput number: ";
         cin>>choice;
         //alg.izvele
         switch(choice){
-            
+            case 1: bubblesort(mas, n);
+				    system("pause>>nul");
+				    break;
             
             case 0: cout<<"\nExit"; break;
             
