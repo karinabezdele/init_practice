@@ -15,7 +15,12 @@ void mas_ievads(int mas[],int n) {
 
 //mas izvads
 void mas_izvads(int mas[],int n) {
-    cout << "\nArray: ";
+    cout << "\nIndex: ";
+    for (int i = 0; i < n; i++) {
+        cout << i << " ";
+    }
+    
+	cout << "\nArray: ";
     for (int i = 0; i < n; i++) {
         cout << mas[i] << " ";
     }
