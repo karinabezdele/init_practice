@@ -28,6 +28,26 @@ void mas_izvads(int mas[],int n) {
     cout << endl;
 }
 
+//bubblesort
+void bubblesort(int mas[], int n) {
+    int i, j, x;
+
+    mas_izvads(mas, n);
+
+    for (j = 0; j < n - 1; j++) {
+        for (i = 0; i < n - 1 - j; i++) {
+            if (mas[i] > mas[i + 1]) {
+                x = mas[i];
+                mas[i] = mas[i + 1];
+                mas[i + 1] = x;
+            }
+        }
+    }
+
+    cout << "\nSorted array:";
+    mas_izvads(mas, n);
+}
+
 //masiva generesana
 void arrayInputGen(int n, int mas[]) {
     for (int i = 0; i < n; i++) {
