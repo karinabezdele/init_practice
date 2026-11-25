@@ -34,11 +34,13 @@ void bubblesort(int mas[], int n) {
     int sal = 0;
     int apm = 0;
     bool swapped;
+    int passes = 0;
 
     mas_izvads(mas, n);
 
     for (j = 0; j < n - 1; j++) {
-    	swapped = false;
+    	passes++;
+		swapped = false;
     	
         for (i = 0; i < n - 1 - j; i++) {
         	sal++;
@@ -62,6 +64,7 @@ void bubblesort(int mas[], int n) {
     
     cout << "\nComparisons: " << sal;
     cout << "\nSwaps: " << apm;
+    cout << "\nPasses: " << passes;
 }
 
 //masiva generesana
