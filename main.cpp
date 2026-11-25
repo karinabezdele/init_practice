@@ -15,13 +15,26 @@ void mas_ievads(int mas[],int n) {
 
 //mas izvads
 void mas_izvads(int mas[],int n) {
-    int i;
-    cout<<"\n";
-    for (i = 0;i < n;i++) {
+    cout << "\nIndex: ";
+    for (int i = 0; i < n; i++) {
+        cout << i << " ";
+    }
+    
+	cout << "\nArray: ";
+    for (int i = 0; i < n; i++) {
         cout << mas[i] << " ";
     }
-    cout<<endl;
+    cout << "\n--------------------------";
+    cout << endl;
 }
+
+//masiva generesana
+void arrayInputGen(int n, int mas[]) {
+    for (int i = 0; i < n; i++) {
+        mas[i] = rand() % 30 + 1;
+    }
+}
+
 
 //=======================================MAIN================================================
 int main(){
@@ -30,8 +43,8 @@ int main(){
     int n,choice;
     cout << "\nn = ";
     cin >> n;
-    //arrayInputGen(n, mas);
-    mas_ievads(mas, n);
+    arrayInputGen(n, mas);
+    //mas_ievads(mas, n);
     mas_izvads(mas, n);
     
     do {
