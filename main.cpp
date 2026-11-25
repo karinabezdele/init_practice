@@ -15,12 +15,17 @@ void mas_ievads(int mas[],int n) {
 
 //mas izvads
 void mas_izvads(int mas[],int n) {
-    int i;
-    cout<<"\n";
-    for (i = 0;i < n;i++) {
+    cout << "\nIndex: ";
+    for (int i = 0; i < n; i++) {
+        cout << i << " ";
+    }
+    
+	cout << "\nArray: ";
+    for (int i = 0; i < n; i++) {
         cout << mas[i] << " ";
     }
-    cout<<endl;
+    cout << "\n--------------------------";
+    cout << endl;
 }
 
 //masiva generesana
@@ -38,10 +43,6 @@ int main(){
     int n,choice;
     cout << "\nn = ";
     cin >> n;
-    if (n <= 0 || n > N) {
-	    cout << "Array size must be between 1 and 1000!";
-	    return 1;
-    }
     arrayInputGen(n, mas);
     //mas_ievads(mas, n);
     mas_izvads(mas, n);
