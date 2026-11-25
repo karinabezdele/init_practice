@@ -39,7 +39,7 @@ int main(){
     cout << "\nn = ";
     cin >> n;
     if (n <= 0 || n > N) {
-	    cout << "Wrong array size!";
+	    cout << "Array size must be between 1 and 1000!";
 	    return 1;
     }
     arrayInputGen(n, mas);
