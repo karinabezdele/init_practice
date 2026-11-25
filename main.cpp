@@ -24,6 +24,7 @@ void mas_izvads(int mas[],int n) {
     for (int i = 0; i < n; i++) {
         cout << mas[i] << " ";
     }
+    cout << "\n--------------------------";
     cout << endl;
 }
 
