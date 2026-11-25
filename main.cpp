@@ -38,8 +38,8 @@ int main(){
     int n,choice;
     cout << "\nn = ";
     cin >> n;
-    //arrayInputGen(n, mas);
-    mas_ievads(mas, n);
+    arrayInputGen(n, mas);
+    //mas_ievads(mas, n);
     mas_izvads(mas, n);
     
     do {
