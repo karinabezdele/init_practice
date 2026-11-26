@@ -213,6 +213,33 @@ bool is_sorted(int mas[],int n){
     }
 }
 
+//insertsort
+void insertsort(int mas[],int n) {
+    int i, x, position;
+    bool sorted=false;
+    int st = 0;
+    int M = 0, C=0;
+    mas_izvads(mas,n);
+    for (position=1;position<n && sorted==false;position++){
+        st++;
+        cout << "\nStep = " << st;
+        mas_izvads(mas,n);
+        for(i=position;i>0;i--){
+            C++;
+            if(mas[i] < mas[i-1]) {
+                x = mas[i];
+                mas[i] = mas[i-1];
+                mas[i-1] = x;
+                mas_izvads(mas,n);
+                M++;
+            }
+        }//i
+        sorted=is_sorted(mas,n);
+    }//position
+    cout << "\nVispaar bija C = " << C << " salidzinasanas";
+    cout << "\nVispaar bija M = " << M << " apmainas";
+}
+
 
 
 
