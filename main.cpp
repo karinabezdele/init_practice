@@ -173,6 +173,36 @@ void shakersort2 (int mas[],int n){ //no labas uz kreiso
     }
 }
 
+//selectsort
+void selectsort(int mas[],int n) {
+    int i, j, x, min_poz;
+    int C = 0, M = 0;
+    
+    mas_izvads(mas,n);
+    for(i=0;i<n-1;i++){
+        cout << "\nStep = " << i+1;
+         min_poz = i;
+        //min
+        for(j = i+1; j < n; j++) {
+            C++;
+            if(mas[j] < mas[min_poz]) {
+                min_poz = j;
+            }
+        }
+        //swap
+        if(min_poz != i) {
+            x = mas[i];
+            mas[i] = mas[min_poz];
+            mas[min_poz] = x;
+            M++;
+        }
+        mas_izvads(mas,n);
+    }
+    cout << "\nVispaar bija C = " << C << " salidzinasanas";
+    cout << "\nVispaar bija M = " << M << " apmainas";
+}
+
+
 
 //=======================================MAIN================================================
 int main(){
