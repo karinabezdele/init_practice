@@ -202,6 +202,45 @@ void selectsort(int mas[],int n) {
     cout << "\nVispaar bija M = " << M << " apmainas";
 }
 
+//IS_SORTED
+bool is_sorted(int mas[],int n){
+    int i;
+    for(i=0;i<n && mas[i]<=mas[i+1];i++);
+    if (i==n-1){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+//insertsort
+void insertsort(int mas[],int n) {
+    int i, x, position;
+    bool sorted=false;
+    int st = 0;
+    int M = 0, C=0;
+    mas_izvads(mas,n);
+    for (position=1;position<n && sorted==false;position++){
+        st++;
+        cout << "\nStep = " << st;
+        mas_izvads(mas,n);
+        for(i=position;i>0;i--){
+            C++;
+            if(mas[i] < mas[i-1]) {
+                x = mas[i];
+                mas[i] = mas[i-1];
+                mas[i-1] = x;
+                mas_izvads(mas,n);
+                M++;
+            }
+        }//i
+        sorted=is_sorted(mas,n);
+    }//position
+    cout << "\nVispaar bija C = " << C << " salidzinasanas";
+    cout << "\nVispaar bija M = " << M << " apmainas";
+}
+
+
 
 
 //=======================================MAIN================================================
@@ -223,6 +262,7 @@ int main(){
         cout << "\n 2. ShakerSort (left to right)";
         cout << "\n 3. ShakerSort (no labas uz kreiso)";
         cout << "\n 4. SelectSort";
+        cout<<"\n 5. InsertSort ";
         cout<<"\n 0. Exit";
         cout<<"\nInput number: ";
         cin>>choice;
@@ -240,6 +280,9 @@ int main(){
             case 4: selectsort(mas, n);
 				    system("pause>>nul");
 				    break;
+			case 5: insertsort(mas,n); 
+		            system("pause>>nul");
+		            break;
             case 0: cout<<"\nExit"; break;
             
             default: cout<<"\nWrong choice";
