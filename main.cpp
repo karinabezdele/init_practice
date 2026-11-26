@@ -142,12 +142,16 @@ int main(){
         //saraksts
         cout<<"\n\t\tSorting Algorithms";
         cout<<"\n 1. Bubble Sort";
+        cout << "\n 2. ShakerSort (left to right)";
         cout<<"\n 0. Exit";
         cout<<"\nInput number: ";
         cin>>choice;
         //alg.izvele
         switch(choice){
             case 1: bubblesort(mas, n);
+				    system("pause>>nul");
+				    break;
+			case 2: shakersort(mas, n);
 				    system("pause>>nul");
 				    break;
             
