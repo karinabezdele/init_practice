@@ -262,6 +262,7 @@ int main(){
         cout << "\n 2. ShakerSort (left to right)";
         cout << "\n 3. ShakerSort (no labas uz kreiso)";
         cout << "\n 4. SelectSort";
+        cout<<"\n 5. InsertSort ";
         cout<<"\n 0. Exit";
         cout<<"\nInput number: ";
         cin>>choice;
@@ -279,6 +280,9 @@ int main(){
             case 4: selectsort(mas, n);
 				    system("pause>>nul");
 				    break;
+			case 5: insertsort(mas,n); 
+		            system("pause>>nul");
+		            break;
             case 0: cout<<"\nExit"; break;
             
             default: cout<<"\nWrong choice";
