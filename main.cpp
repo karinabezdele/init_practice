@@ -203,7 +203,7 @@ int main(){
 			case 2: shakersort(mas, n);
 				    system("pause>>nul");
 				    break;
-			case 4: shakersort2(mas, n);
+			case 3: shakersort2(mas, n);
 				    system("pause>>nul");
 				    break;
             
