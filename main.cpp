@@ -202,6 +202,18 @@ void selectsort(int mas[],int n) {
     cout << "\nVispaar bija M = " << M << " apmainas";
 }
 
+//IS_SORTED
+bool is_sorted(int mas[],int n){
+    int i;
+    for(i=0;i<n && mas[i]<=mas[i+1];i++);
+    if (i==n-1){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
 
 
 //=======================================MAIN================================================
