@@ -125,6 +125,54 @@ void shakersort (int mas[],int n){ //no kreisas uz labo
     }
 }
 
+void shakersort2 (int mas[],int n){ //no labas uz kreiso
+    int L = 0;
+    int R = n - 1;
+    int x, i, st = 0;
+    int apm;
+    
+    mas_izvads(mas,n);
+    
+    while (L<R){
+        apm = 0;
+        
+        //no labas uz kr
+        for(i = R; i > L; i--) {
+
+            if (mas[i] < mas[i-1]) {
+                if (apm == 0) {
+                    cout << "\nStep = " << st + 1;
+                }
+                x = mas[i];
+                mas[i] = mas[i-1];
+                mas[i-1] = x;
+
+                apm++;
+                mas_izvads(mas, n);
+            }
+        }
+        L++;
+         //no kr uz labo
+        for (i = L; i < R; i++) {
+
+            if (mas[i] > mas[i+1]){
+            x = mas[i];
+            mas[i] = mas[i+1];
+            mas[i+1] = x;
+            
+            apm++;
+            mas_izvads(mas,n);
+            }
+        }
+        R--; 
+        
+        if (apm == 0){
+            return;
+        }
+        st++; 
+    }
+}
+
 
 //=======================================MAIN================================================
 int main(){
@@ -143,6 +191,7 @@ int main(){
         cout<<"\n\t\tSorting Algorithms";
         cout<<"\n 1. Bubble Sort";
         cout << "\n 2. ShakerSort (left to right)";
+        cout << "\n 3. ShakerSort (no labas uz kreiso)";
         cout<<"\n 0. Exit";
         cout<<"\nInput number: ";
         cin>>choice;
@@ -152,6 +201,9 @@ int main(){
 				    system("pause>>nul");
 				    break;
 			case 2: shakersort(mas, n);
+				    system("pause>>nul");
+				    break;
+			case 4: shakersort2(mas, n);
 				    system("pause>>nul");
 				    break;
             
