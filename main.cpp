@@ -74,6 +74,57 @@ void arrayInputGen(int n, int mas[]) {
     }
 }
 
+//shakersort
+void shakersort (int mas[],int n){ //no kreisas uz labo
+    int L = 0;
+    int R = n - 1;
+    int x, i, st = 0;
+    int apm;
+    
+   mas_izvads(mas,n);
+    
+    while (L<R){
+        apm = 0;
+        
+        //no kr uz labo
+        for(i = L; i < R; i++) {
+            
+            if (mas[i] > mas[i+1]){
+                if (apm == 0) {
+                    cout << "\nStep = " << st + 1;
+                }
+            x = mas[i];
+            mas[i] = mas[i+1];
+            mas[i+1] = x;
+            
+            apm++;
+            //mas_izvads(mas,n);
+            }
+            mas_izvads(mas,n);
+        }
+        R--;
+         //no labas uz kr
+        for (i = R; i > L; i--) {
+
+            if (mas[i] < mas[i-1]) {
+                x = mas[i];
+                mas[i] = mas[i-1];
+                mas[i-1] = x;
+
+                apm++;
+                //mas_izvads(mas, n);
+            }
+            mas_izvads(mas,n);
+        }
+        L++; 
+        
+        if (apm == 0){
+            return;
+        }
+        st++; 
+    }
+}
+
 
 //=======================================MAIN================================================
 int main(){
