@@ -222,6 +222,7 @@ int main(){
         cout<<"\n 1. Bubble Sort";
         cout << "\n 2. ShakerSort (left to right)";
         cout << "\n 3. ShakerSort (no labas uz kreiso)";
+        cout << "\n 4. SelectSort";
         cout<<"\n 0. Exit";
         cout<<"\nInput number: ";
         cin>>choice;
@@ -236,7 +237,9 @@ int main(){
 			case 3: shakersort2(mas, n);
 				    system("pause>>nul");
 				    break;
-            
+            case 4: selectsort(mas, n);
+				    system("pause>>nul");
+				    break;
             case 0: cout<<"\nExit"; break;
             
             default: cout<<"\nWrong choice";
