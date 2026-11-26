@@ -28,12 +28,219 @@ void mas_izvads(int mas[],int n) {
     cout << endl;
 }
 
+//bubblesort
+void bubblesort(int mas[], int n) {
+    int i, j, x;
+    int sal = 0;
+    int apm = 0;
+    bool swapped;
+    int passes = 0;
+
+    mas_izvads(mas, n);
+
+    for (j = 0; j < n - 1; j++) {
+    	passes++;
+		swapped = false;
+    	
+        for (i = 0; i < n - 1 - j; i++) {
+        	sal++;
+        	
+            if (mas[i] > mas[i + 1]) {
+                x = mas[i];
+                mas[i] = mas[i + 1];
+                mas[i + 1] = x;
+                apm++;
+                swapped = true;
+            }
+        }
+        if (!swapped) {
+            break;
+    	}
+		
+    }
+
+    cout << "\nSorted array:";
+    mas_izvads(mas, n);
+    
+    cout << "\nComparisons: " << sal;
+    cout << "\nSwaps: " << apm;
+    cout << "\nPasses: " << passes;
+}
+
 //masiva generesana
 void arrayInputGen(int n, int mas[]) {
     for (int i = 0; i < n; i++) {
         mas[i] = rand() % 30 + 1;
     }
 }
+
+//shakersort
+void shakersort (int mas[],int n){ //no kreisas uz labo
+    int L = 0;
+    int R = n - 1;
+    int x, i, st = 0;
+    int apm;
+    
+   mas_izvads(mas,n);
+    
+    while (L<R){
+        apm = 0;
+        
+        //no kr uz labo
+        for(i = L; i < R; i++) {
+            
+            if (mas[i] > mas[i+1]){
+                if (apm == 0) {
+                    cout << "\nStep = " << st + 1;
+                }
+            x = mas[i];
+            mas[i] = mas[i+1];
+            mas[i+1] = x;
+            
+            apm++;
+            //mas_izvads(mas,n);
+            }
+            mas_izvads(mas,n);
+        }
+        R--;
+         //no labas uz kr
+        for (i = R; i > L; i--) {
+
+            if (mas[i] < mas[i-1]) {
+                x = mas[i];
+                mas[i] = mas[i-1];
+                mas[i-1] = x;
+
+                apm++;
+                //mas_izvads(mas, n);
+            }
+            mas_izvads(mas,n);
+        }
+        L++; 
+        
+        if (apm == 0){
+            return;
+        }
+        st++; 
+    }
+}
+
+void shakersort2 (int mas[],int n){ //no labas uz kreiso
+    int L = 0;
+    int R = n - 1;
+    int x, i, st = 0;
+    int apm;
+    
+    mas_izvads(mas,n);
+    
+    while (L<R){
+        apm = 0;
+        
+        //no labas uz kr
+        for(i = R; i > L; i--) {
+
+            if (mas[i] < mas[i-1]) {
+                if (apm == 0) {
+                    cout << "\nStep = " << st + 1;
+                }
+                x = mas[i];
+                mas[i] = mas[i-1];
+                mas[i-1] = x;
+
+                apm++;
+                mas_izvads(mas, n);
+            }
+        }
+        L++;
+         //no kr uz labo
+        for (i = L; i < R; i++) {
+
+            if (mas[i] > mas[i+1]){
+            x = mas[i];
+            mas[i] = mas[i+1];
+            mas[i+1] = x;
+            
+            apm++;
+            mas_izvads(mas,n);
+            }
+        }
+        R--; 
+        
+        if (apm == 0){
+            return;
+        }
+        st++; 
+    }
+}
+
+//selectsort
+void selectsort(int mas[],int n) {
+    int i, j, x, min_poz;
+    int C = 0, M = 0;
+    
+    mas_izvads(mas,n);
+    for(i=0;i<n-1;i++){
+        cout << "\nStep = " << i+1;
+         min_poz = i;
+        //min
+        for(j = i+1; j < n; j++) {
+            C++;
+            if(mas[j] < mas[min_poz]) {
+                min_poz = j;
+            }
+        }
+        //swap
+        if(min_poz != i) {
+            x = mas[i];
+            mas[i] = mas[min_poz];
+            mas[min_poz] = x;
+            M++;
+        }
+        mas_izvads(mas,n);
+    }
+    cout << "\nVispaar bija C = " << C << " salidzinasanas";
+    cout << "\nVispaar bija M = " << M << " apmainas";
+}
+
+//IS_SORTED
+bool is_sorted(int mas[],int n){
+    int i;
+    for(i=0;i<n && mas[i]<=mas[i+1];i++);
+    if (i==n-1){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+//insertsort
+void insertsort(int mas[],int n) {
+    int i, x, position;
+    bool sorted=false;
+    int st = 0;
+    int M = 0, C=0;
+    mas_izvads(mas,n);
+    for (position=1;position<n && sorted==false;position++){
+        st++;
+        cout << "\nStep = " << st;
+        mas_izvads(mas,n);
+        for(i=position;i>0;i--){
+            C++;
+            if(mas[i] < mas[i-1]) {
+                x = mas[i];
+                mas[i] = mas[i-1];
+                mas[i-1] = x;
+                mas_izvads(mas,n);
+                M++;
+            }
+        }//i
+        sorted=is_sorted(mas,n);
+    }//position
+    cout << "\nVispaar bija C = " << C << " salidzinasanas";
+    cout << "\nVispaar bija M = " << M << " apmainas";
+}
+
+
 
 
 //=======================================MAIN================================================
@@ -51,14 +258,31 @@ int main(){
         system("cls"); //clear
         //saraksts
         cout<<"\n\t\tSorting Algorithms";
-        
+        cout<<"\n 1. Bubble Sort";
+        cout << "\n 2. ShakerSort (left to right)";
+        cout << "\n 3. ShakerSort (no labas uz kreiso)";
+        cout << "\n 4. SelectSort";
+        cout<<"\n 5. InsertSort ";
         cout<<"\n 0. Exit";
         cout<<"\nInput number: ";
         cin>>choice;
         //alg.izvele
         switch(choice){
-            
-            
+            case 1: bubblesort(mas, n);
+				    system("pause>>nul");
+				    break;
+			case 2: shakersort(mas, n);
+				    system("pause>>nul");
+				    break;
+			case 3: shakersort2(mas, n);
+				    system("pause>>nul");
+				    break;
+            case 4: selectsort(mas, n);
+				    system("pause>>nul");
+				    break;
+			case 5: insertsort(mas,n); 
+		            system("pause>>nul");
+		            break;
             case 0: cout<<"\nExit"; break;
             
             default: cout<<"\nWrong choice";
