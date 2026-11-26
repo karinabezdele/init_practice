@@ -11,7 +11,7 @@ A simple C++ program with array input and output.
 - GitHub
 
 ## Author
-Karina Bezdele
+Karina Bezdelee
 
 ## Course
 Git and C++
